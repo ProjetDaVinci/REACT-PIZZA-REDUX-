@@ -1,40 +1,6 @@
 import React from 'react'
 
 
-// class Categories extends React.Component {
-  
-//   state ={
-//     activeItem:3,
-//   };
-
-// onSelectItem = (index) => {
-//   this.setState({
-//     activeItem: index,
-//   });
-// };
-
-//     render(){
-//       const { items, onClick} = this.props;
-//       return(
-//       <div className="categories">
-//       <ul>
-//         <li className="active">Все</li>
-//         {items.map((item, index) => (
-//             <li 
-//             className={this.state.activeItem === index ? 'active':''}
-//             onClick={()=>this.onSelectItem(index)}
-//             key={`${item}_${index}`}>{item}</li>
-//         ))}
-//       </ul>
-//     </div>
-//     )
-      
-//     }
-
-// }
-
-
-
 function Categories({items, onClick}) {
   const [activeItem,setActiveItem] = React.useState(null)
 
@@ -45,8 +11,8 @@ function Categories({items, onClick}) {
   return (
             <div className="categories">
               <ul>
-                <li className="active">Все</li>
-                {items.map((item, key) => (
+                <li className={activeItem === null ? 'active':''} onClick={()=>onSelectItem(null)}>Все</li>
+                {items && items.map((item, key) => (
                     <li 
                     className={activeItem === key ? 'active':''}
                     onClick={()=>onSelectItem(key)}
